@@ -2,9 +2,9 @@
 
 function dictionarize(string $source, array $words): string
 {
-    $reserved = ['__construct', 'argv', 'this'];
+    $reserved = ['__construct', 'this'];
 
-    preg_match_all('/(function |class |\$)(\w+)/', $source, $output);
+    preg_match_all('/(function |class |const |\$)(\w+)/', $source, $output);
     $keywords = array_diff(array_unique($output[2]), $reserved);
     shuffle($words);
 
